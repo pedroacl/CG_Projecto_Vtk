@@ -2,8 +2,6 @@ vtkRenderer r
 vtkRenderWindow rw
 rw AddRenderer r
 
-source eixos.tcl
-
 
 
 ## OBJECTOS
