@@ -270,7 +270,8 @@ r AutomaticLightCreationOff
 r AddLight Luz1
 r AddLight Luz2
 
-#Cam1 SetClippingRange x x
+Cam1 Elevation 60
+Cam1 SetClippingRange 0.1 115
 
 #Pôe a cor do fundo a cinzento
 r SetBackground 0.7 0.7 0.7
