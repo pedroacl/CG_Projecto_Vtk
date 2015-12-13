@@ -266,11 +266,11 @@ r AddActor Plano_A
 r SetActiveCamera Cam1
 
 # Desliga a criação da luz ambiente default
-#r AutomaticLightCreationOff
+r AutomaticLightCreationOff
 
 #Adiciona as duas luzes à cena
-#r AddLight Luz1
-#r AddLight Luz2
+r AddLight Luz1
+r AddLight Luz2
 
 #Cam1 SetClippingRange x x
 
