@@ -2,6 +2,24 @@ vtkRenderer r
 vtkRenderWindow rw
 rw AddRenderer r
 
+#Cor do fundo a cinzento
+r SetBackground 0.7 0.7 0.7
+
+#Definir interacao com camera
+package require vtkinteraction
+
+vtkRenderWindowInteractor iren
+iren SetRenderWindow rw
+
+# Definir o estilo de interacao 
+vtkInteractorStyleTrackballCamera style
+iren SetInteractorStyle style
+
+iren AddObserver UserEvent {wm deiconify .vtkInteract}
+
+#include
+source eixos.tcl
+
 
 
 ## OBJECTOS
@@ -52,26 +70,12 @@ vtkPlaneSource Plano_S
 
 # Câmara
 vtkCamera Cam1
-	Cam1 SetPosition 0 0 120
+	Cam1 SetPosition 0 10 120
 	Cam1 SetFocalPoint 0 0 0
 	Cam1 SetClippingRange 1 1000
 	Cam1 SetViewAngle 30
 
-# Luz1
-vtkLight Luz1
-	Luz1 SetIntensity 1
-	Luz1 SetPosition 0 0 120
-	Luz1 SetPositional 1
-	Luz1 SetConeAngle 180
-	Luz1 SetColor 0 0 1
 
-# Luz2
-vtkLight Luz2
-	Luz2 SetIntensity 1
-	Luz2 SetPosition 0 0 120
-	Luz2 SetPositional 1
-	Luz2 SetConeAngle 180
-	Luz2 SetColor 0 1 0
 
 
 
@@ -105,17 +109,17 @@ Plano_Mapper SetInput [Plano_S GetOutput]
 
 ## PROPERTIES
 
-# Propriedades da esfera brilhante
+# Propriedades da esfera brilhante Cian
 vtkProperty Esfera_B_Prop
 Esfera_B_Prop SetColor 0 1 1
 Esfera_B_Prop SetDiffuse 0.8
 Esfera_B_Prop SetSpecular 1.0
 Esfera_B_Prop SetInterpolationToGouraud
 
-# Propriedades da esfera baca
+# Propriedades da esfera baca Magenta
 vtkProperty Esfera_Baca_Prop
 Esfera_Baca_Prop SetDiffuse 0.8
-Esfera_Baca_Prop SetSpecular 0
+Esfera_Baca_Prop SetSpecular 0.4
 Esfera_Baca_Prop SetColor 1 0 1
 Esfera_Baca_Prop SetInterpolationToGouraud
 
@@ -241,6 +245,11 @@ PernaSD_A SetUserMatrix [PernaSD_tr GetMatrix]
 
 #Adiciona a mesa à cena
 r AddActor Mesa_A
+###Adiciona as pernas da mesa à cena
+r AddActor PernaIE_A
+r AddActor PernaID_A
+r AddActor PernaSE_A
+r AddActor PernaSD_A
 
 #Adiciona a caixa à cena
 r AddActor Caixa_A
@@ -251,12 +260,6 @@ r AddActor Esfera_Baca_A
 #Adiciona a esfera brilhante à cena
 r AddActor Esfera_B_A
 
-#Adiciona as pernas da mesa à cena
-r AddActor PernaIE_A
-r AddActor PernaID_A
-r AddActor PernaSE_A
-r AddActor PernaSD_A
-
 #Adiciona o plano à cena
 r AddActor Plano_A
 
@@ -266,17 +269,18 @@ r SetActiveCamera Cam1
 # Desliga a criação da luz ambiente default
 r AutomaticLightCreationOff
 
-#Adiciona as duas luzes à cena
-r AddLight Luz1
-r AddLight Luz2
 
-Cam1 Elevation 60
+Cam1 Elevation 40
 Cam1 SetClippingRange 0.1 115
+Cam1 SetParallelProjection 0
 
-#Pôe a cor do fundo a cinzento
-r SetBackground 0.7 0.7 0.7
+source replace_lights.tcl
 
 rw Render
+
+
+
+wm withdraw .
 
 
 
