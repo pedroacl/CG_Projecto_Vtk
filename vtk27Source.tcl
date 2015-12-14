@@ -1,3 +1,8 @@
+####### Grupo 027 ########
+# João Rodrigues, nº 45582
+# Pedro Luís, nº 45588
+# Ricardo Veloso, nº 44842
+
 vtkRenderer r
 vtkRenderWindow rw
 rw AddRenderer r
