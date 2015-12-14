@@ -207,39 +207,46 @@ Esfera_Baca_Prop SetInterpolationToGouraud
 # Propriedades da caixa
 vtkProperty Caixa_Prop
 Caixa_Prop SetDiffuse 0
+Caixa_Prop SetSpecular 0
 Caixa_Prop SetAmbient 1
 Caixa_Prop SetColor 0 1 0
 
 # Propriedades da mesa
 vtkProperty Mesa_Prop
 Mesa_Prop SetDiffuse 0
+Mesa_Prop SetSpecular 0
 Mesa_Prop SetAmbient 1
 Mesa_Prop SetColor 1 1 1
 
 # Propriedades das pernas da mesa
 vtkProperty PernaIE_Prop
 PernaIE_Prop SetDiffuse 0
+PernaIE_Prop SetSpecular 0
 PernaIE_Prop SetAmbient 1
 PernaIE_Prop SetColor 1 1 1 
 
 vtkProperty PernaID_Prop
 PernaID_Prop SetDiffuse 0
+PernaID_Prop SetSpecular 0
 PernaID_Prop SetAmbient 1
 PernaID_Prop SetColor 1 1 1 
 
 vtkProperty PernaSE_Prop
 PernaSE_Prop SetDiffuse 0
+PernaSE_Prop SetSpecular 0
 PernaSE_Prop SetAmbient 1
 PernaSE_Prop SetColor 1 1 1
 
 vtkProperty PernaSD_Prop
 PernaSD_Prop SetDiffuse 0
+PernaSD_Prop SetSpecular 0
 PernaSD_Prop SetAmbient 1
 PernaSD_Prop SetColor 1 1 1
 
 # Propriedades do Plano
 vtkProperty Plano_Prop
 Plano_Prop SetDiffuse 0
+Plano_Prop SetSpecular 0
 Plano_Prop SetAmbient 1
 Plano_Prop SetColor 0 0 1
 
@@ -297,6 +304,7 @@ Plano_A SetMapper Plano_Mapper
 Plano_A SetProperty Plano_Prop
 
 
+
 ## TRANSFORMATIONS
 
 #Perna Canto-Inferior-Esquerdo
@@ -350,11 +358,6 @@ r SetActiveCamera Cam1
 r AutomaticLightCreationOff
 
 
-Cam1 Elevation 40
-Cam1 SetClippingRange 0.1 115
-Cam1 SetParallelProjection 0
-
-
 
 #Remove luz de origem
 [r GetLights] InitTraversal
@@ -379,7 +382,13 @@ r AddLight Luz2
 	Luz2 SetConeAngle 180
 	Luz2 SetColor 0 1 0
 
+Cam1 Elevation 40
+Cam1 SetParallelProjection 0
 
+#Cam1 SetClippingRange 0.1 115
+#Cam1 SetClippingRange 121 1000
+
+#Cam1 SetClippingRange 112 115
 
 rw Render
 
