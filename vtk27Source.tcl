@@ -381,12 +381,20 @@ r AddLight Luz2
 	Luz2 SetConeAngle 180
 	Luz2 SetColor 0 1 0
 
-Cam1 Elevation 40
+
 Cam1 SetParallelProjection 0
 
+#Testar influencia do front e back clipping plane
+
+#Cam1 Elevation 40
+
+#Aproximar back clipping plane
 #Cam1 SetClippingRange 0.1 115
+
+#Afastar front clipping plane
 #Cam1 SetClippingRange 121 1000
 
+#Aproximar back clipping plane e afastar front clipping plane
 #Cam1 SetClippingRange 112 115
 
 rw Render
