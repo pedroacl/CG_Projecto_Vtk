@@ -251,7 +251,6 @@ Plano_Prop SetAmbient 1
 Plano_Prop SetColor 0 0 1
 
 
-
 ## ACTORS
 # Esfera Brilhante
 vtkActor Esfera_B_A
