@@ -384,6 +384,8 @@ r AddLight Luz2
 
 Cam1 SetParallelProjection 0
 
+
+
 #Testar influencia do front e back clipping plane
 
 #Cam1 Elevation 40
